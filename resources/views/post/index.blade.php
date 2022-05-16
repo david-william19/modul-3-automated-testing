@@ -7,7 +7,7 @@
             <a href="{{route('post.create')}}" class="bg-sky-500 p-3 text-white font-bold rounded-lg mr-2">Create new post</a>
         </div>
     </x-slot>
-
+ 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -16,7 +16,7 @@
                     {{ session('success') }}
                 </div>
                 @endif
-
+ 
                 @if (session('error'))
                 <div class="bg-red-500 p-3 text-white text-center">
                     {{ session('error') }}
@@ -30,12 +30,13 @@
                         <p class="font-base mb-3">{{$dt->description}}</p>
                         <hr class="mb-2" />
                         <div>
-                            <a type="submit" href="{{ route('post.show', $dt->id )}}" class="bg-lime-500 p-3 text-white font-bold rounded-lg mr-2">show</a>
-                            <a type="submit" href="{{ route('post.edit', $dt->id )}}" class="bg-amber-500 p-3 text-white font-bold rounded-lg mr-2">Edit</a>
+ 
+                            <a type="submit" href="{{ route('post.show', $dt->id )}}" id="{{$dt->id}}" class="bg-lime-500 p-3 text-white font-bold rounded-lg mr-2">show</a>
+                            <a type="submit" href="{{ route('post.edit', $dt->id )}}" id="edit-{{$dt->id}}" class="bg-amber-500 p-3 text-white font-bold rounded-lg mr-2">Edit</a>
                             <form class="inline" action="{{ route('post.destroy', $dt->id )}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-rose-500 p-3 text-white font-bold rounded-lg">Delete</button>
+                                <button type="submit" id="delete-{{$dt->id}}" class="bg-rose-500 p-3 text-white font-bold rounded-lg">Delete</button>
                             </form>
                         </div>
                     </div>
