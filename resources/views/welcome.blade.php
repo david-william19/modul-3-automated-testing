@@ -38,6 +38,7 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <img alt="logo" src="{{asset('images/logo-ead.png')}}" width="600px"/>
+            <p style="color:white"class=" text-center">Enterprise Application Development</p>   
             </div>
         </div>
     </body>
